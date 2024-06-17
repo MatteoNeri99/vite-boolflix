@@ -5,10 +5,23 @@ export default {
   data() {
     return {
       
-      
+      flag:"",
     }
   },
-  components:{
+  methods:{
+    getFlag(lingua){
+
+      axios.get('https://flagcdn.com/16x12/'+ lingua.png)
+      .then( ( response ) => {
+        console.log(response)
+        this.flag=response
+
+      })
+
+    },flagFilm(){
+      this.getFlag(filmsList.original_language )
+    }
+    
    
     
   },props:{
@@ -29,7 +42,7 @@ export default {
   <h2>Film</h2>
   <p>{{ filmsList.original_title }}</p>
   <p>{{ filmsList.title }}</p>
-  <p>{{ filmsList.original_language }}</p>
+  <span class="lang-icon" :class="`lang-icon-${filmsList.original_language}`"></span>
   <p>{{ filmsList.vote_average }}</p>
 
 </article>
@@ -39,6 +52,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../style/partials/Flag" as *;
 
 article{
   border:1px solid black;
@@ -46,6 +60,10 @@ article{
 
   h2{
     color: red;
+  }
+
+  .lang-icon {
+    background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
   }
 
 }
