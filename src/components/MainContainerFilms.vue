@@ -1,6 +1,7 @@
 
 <script>
 import MainFilm from './MainFilm.vue'
+import MainSerieTv from './MainSerieTv.vue'
 
 
 
@@ -12,10 +13,15 @@ export default {
     }
   },
   components:{
-    MainFilm
+    MainFilm,
+    MainSerieTv
     
   },props:{
     filmsList:{
+      type: Array,
+      required: true
+    },
+    serieTvList:{
       type: Array,
       required: true
     }
@@ -28,6 +34,7 @@ export default {
 
 
 <MainFilm v-for="filmsList in filmsList"  :filmsList="filmsList"/>
+<MainSerieTv v-for="serieTvList in serieTvList"  :serieTvList="serieTvList"/>
 
   
    

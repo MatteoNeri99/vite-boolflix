@@ -12,7 +12,7 @@ export default {
    
     
   },props:{
-    filmsList:{
+    serieTvList:{
       type: Object,
       required: true
     }
@@ -25,12 +25,12 @@ export default {
 
 
 <article>
-
-  <h2>Film</h2>
-  <p>{{ filmsList.original_title }}</p>
-  <p>{{ filmsList.title }}</p>
-  <p>{{ filmsList.original_language }}</p>
-  <p>{{ filmsList.vote_average }}</p>
+    
+    <h2>Serie tv</h2>
+    <p>{{ serieTvList.original_name }}</p>
+    <p>{{ serieTvList.name }}</p>
+    <p>{{ serieTvList.original_language }}</p>
+    <p>{{ serieTvList.vote_average }}</p>
 
 </article>
 
@@ -47,7 +47,6 @@ article{
   h2{
     color: red;
   }
-
 }
 
 

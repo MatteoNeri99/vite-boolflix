@@ -4,7 +4,7 @@
 export default {
   data() {
     return {
-      filmsName:"",
+      searchName:"",
 
       
     }
@@ -22,8 +22,8 @@ export default {
 
   <section>
 
-    <input type="text" v-model="filmsName" > 
-    <button  @click="$emit('ricerca', filmsName)">cerca</button>
+    <input type="text" v-model="searchName" > 
+    <button  @click="$emit('ricerca', searchName)">cerca</button>
     
    
   </section>
