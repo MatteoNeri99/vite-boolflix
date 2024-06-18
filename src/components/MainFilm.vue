@@ -40,6 +40,9 @@ export default {
 <article>
 
   <h2>Film</h2>
+  <div>
+    <img :src="'https://image.tmdb.org/t/p/w342/' + filmsList.backdrop_path" alt="">
+  </div>
   <p>{{ filmsList.original_title }}</p>
   <p>{{ filmsList.title }}</p>
   <span class="lang-icon" :class="`lang-icon-${filmsList.original_language}`"></span>

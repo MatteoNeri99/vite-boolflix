@@ -27,6 +27,10 @@ export default {
 <article>
     
     <h2>Serie tv</h2>
+    
+    <div>
+      <img :src="'https://image.tmdb.org/t/p/w342/' + serieTvList.backdrop_path" alt="">
+    </div>
     <p>{{ serieTvList.original_name }}</p>
     <p>{{ serieTvList.name }}</p>
     <span class="lang-icon" :class="`lang-icon-${serieTvList.original_language}`"></span>

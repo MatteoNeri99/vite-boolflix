@@ -36,8 +36,8 @@ export default {
 <template>
 
 
-<MainFilm v-for="filmsList in filmsList"  :filmsList="filmsList"/>
-<MainSerieTv v-for="serieTvList in serieTvList"  :serieTvList="serieTvList"/>
+<MainFilm v-for="(filmsList,index) in filmsList" :key="index"  :filmsList="filmsList"/>
+<MainSerieTv v-for="(serieTvList,index) in serieTvList" :key="index"  :serieTvList="serieTvList"/>
 
   
    
