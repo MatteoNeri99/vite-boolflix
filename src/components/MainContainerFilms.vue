@@ -52,6 +52,11 @@ export default {
 section{
   display: flex;
   flex-wrap: wrap;
+  background-color: #434343;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  
 }
 
 

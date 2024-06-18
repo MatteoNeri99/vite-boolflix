@@ -43,24 +43,30 @@ export default {
 
 <article>
     
-    <h2>Serie tv</h2>
     
-    <div>
+    
+    <div class="img">
+
       <img :src="'https://image.tmdb.org/t/p/w342/' + serieTvList.backdrop_path" alt="">
+
     </div>
-    <p>{{ serieTvList.original_name }}</p>
-    <p>{{ serieTvList.name }}</p>
-    <span class="lang-icon" :class="`lang-icon-${serieTvList.original_language}`"></span>
-    <p>{{ serieTvList.vote_average }}</p>
 
-    <div class="stelle-piene" v-for="(element, index) in stellePiene" :key="index">
-    <font-awesome-icon icon="fa-solid fa-star"/>
+    <div class="info">
 
-  </div>
-  <div class="stelle-vuote" v-for="(element, index) in stelleVuote" :key="index">
-    <font-awesome-icon icon="fa-solid fa-star"/>
+    
+      <p>{{ serieTvList.original_name }}</p>
+      <p>{{ serieTvList.name }}</p>
+      <span class="lang-icon" :class="`lang-icon-${serieTvList.original_language}`"></span>
+    
 
-  </div>
+      <div>
+        <font-awesome-icon icon="fa-solid fa-star" class="stelle-piene" v-for="(element, index) in stellePiene" :key="index"/>
+
+        <font-awesome-icon icon="fa-solid fa-star" class="stelle-vuote" v-for="(element, index) in stelleVuote" :key="index"/>
+
+      </div>
+
+    </div>
 
 </article>
 
@@ -75,20 +81,45 @@ article{
   border:1px solid black;
   margin-bottom: 2rem;
 
-  h2{
-    color: red;
+  .img{
+    display: inline-block;
+    
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }  
+  }
+
+  .info{
+    display:none;
+  }
+
+  .img:hover {
+    display: none;
+  }
+
+  .img:hover .info{
+    display: inline-block;
   }
 
 
-    .lang-icon {
+
+
+  .lang-icon {
     background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
   }
 
+ 
+
   .stelle-piene{
+   
     color: gold;
   }
 
   .stelle-vuote{
+    
     color:white;
   }
 }
