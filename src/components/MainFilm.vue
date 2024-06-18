@@ -7,6 +7,7 @@ export default {
       
       stellePiene:[],
       stelleVuote:[],
+      imgUrl:"",
     }
   },
   methods:{
@@ -24,6 +25,18 @@ export default {
         this.stelleVuote.push(index)
 
       }
+    },
+    getImg(){
+
+      if(this.filmsList.backdrop_path != null){
+        this.imgUrl='https://image.tmdb.org/t/p/w342/' + this.filmsList.backdrop_path
+      }else if(this.filmsList.poster_path != null){
+        this.imgUrl='https://image.tmdb.org/t/p/w342/' + this.filmsList.poster_path
+
+      }else{
+        this.imgUrl=""
+      }
+      
     }
    
 
@@ -38,6 +51,7 @@ export default {
     }
   },created(){
     this.getStelle()
+    this.getImg()
   }
   
 }
@@ -49,7 +63,7 @@ export default {
 <article>
   
   <div class="img">
-    <img :src="'https://image.tmdb.org/t/p/w342/' + filmsList.backdrop_path" alt="">
+    <img :src="imgUrl" alt="">
   </div>
 
   <div class="info">

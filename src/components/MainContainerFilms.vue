@@ -37,6 +37,8 @@ export default {
 
 <section>
 
+  
+
   <MainFilm v-for="(filmsList,index) in filmsList" :key="index"  :filmsList="filmsList"/>
 <MainSerieTv v-for="(serieTvList,index) in serieTvList" :key="index"  :serieTvList="serieTvList"/>
 

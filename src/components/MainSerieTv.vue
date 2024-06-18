@@ -6,6 +6,7 @@ export default {
     return {
       stellePiene:[],
       stelleVuote:[],
+      imgUrl:"",
       
     }
   },
@@ -23,7 +24,18 @@ export default {
         this.stelleVuote.push(index)
 
       }
-    }
+    },getImg(){
+
+        if(this.serieTvList.backdrop_path != null){
+          this.imgUrl='https://image.tmdb.org/t/p/w342/' + this.serieTvList.backdrop_path
+        }else if(this.serieTvList.poster_path != null){
+          this.imgUrl='https://image.tmdb.org/t/p/w342/' + this.serieTvList.poster_path
+
+        }else{
+          this.imgUrl=""
+        }
+
+      }
    
     
   },props:{
@@ -33,6 +45,7 @@ export default {
     }
   },created(){
     this.getStelle()
+    this.getImg()
   }
   
 }
@@ -47,7 +60,7 @@ export default {
     
     <div class="img">
 
-      <img :src="'https://image.tmdb.org/t/p/w342/' + serieTvList.backdrop_path" alt="">
+      <img :src="imgUrl" alt="">
 
     </div>
 
@@ -71,7 +84,6 @@ export default {
 </article>
 
 
-<!-- serieTvList.original_language -->
 </template>
 
 <style lang="scss" scoped>
@@ -80,16 +92,18 @@ export default {
 article{
   border:1px solid black;
   margin-bottom: 2rem;
+  width: calc((1000px / 5)  - 1rem);
+  height: 200px;
 
-  .img{
-    display: inline-block;
-    
-    img{
+  img{
       width: 100%;
       height: 100%;
       object-fit: cover;
 
     }  
+
+  .img{
+    display: inline-block;
   }
 
   .info{
