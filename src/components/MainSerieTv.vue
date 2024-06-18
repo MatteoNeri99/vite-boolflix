@@ -4,11 +4,26 @@
 export default {
   data() {
     return {
-      
+      stellePiene:[],
+      stelleVuote:[],
       
     }
   },
-  components:{
+  methods:{
+    getStelle(){
+      let voto = parseInt(Math.ceil(this.serieTvList.vote_average /2 ) , 10)
+      for(let index=0; index < voto ; index++){
+
+        this.stellePiene.push(index)
+
+      }
+
+      for(let index=voto; index < 5 ; index++){
+
+        this.stelleVuote.push(index)
+
+      }
+    }
    
     
   },props:{
@@ -16,6 +31,8 @@ export default {
       type: Object,
       required: true
     }
+  },created(){
+    this.getStelle()
   }
   
 }
@@ -35,6 +52,15 @@ export default {
     <p>{{ serieTvList.name }}</p>
     <span class="lang-icon" :class="`lang-icon-${serieTvList.original_language}`"></span>
     <p>{{ serieTvList.vote_average }}</p>
+
+    <div class="stelle-piene" v-for="(element, index) in stellePiene" :key="index">
+    <font-awesome-icon icon="fa-solid fa-star"/>
+
+  </div>
+  <div class="stelle-vuote" v-for="(element, index) in stelleVuote" :key="index">
+    <font-awesome-icon icon="fa-solid fa-star"/>
+
+  </div>
 
 </article>
 
@@ -56,6 +82,14 @@ article{
 
     .lang-icon {
     background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
+  }
+
+  .stelle-piene{
+    color: gold;
+  }
+
+  .stelle-vuote{
+    color:white;
   }
 }
 
